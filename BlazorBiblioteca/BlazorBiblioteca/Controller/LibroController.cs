@@ -25,7 +25,7 @@ namespace BlazorBiblioteca.Controller
             try
             {
                 var respuesta = await _context.Libros.ToListAsync();
-                return "Conectado a la base de datos    ";
+                return "Conectado a la base de datos     ";
             }
             catch
             {
@@ -76,6 +76,31 @@ namespace BlazorBiblioteca.Controller
 
             if (find == 1) return Ok();
             else return BadRequest();
+        }
+
+        //Metodo Actualizar Libros
+        [HttpPut("libro/{id}")]
+        public async Task<IActionResult> Put(int id, Libro libroActualizado)
+        {
+            if (id != libroActualizado.Id)
+            {
+                return BadRequest("El ID del libro no coincide con la URL.");
+            }
+
+            var libroExistente = await _context.Libros.FindAsync(id);
+            if (libroExistente == null)
+            { 
+                return NotFound();
+            }
+            libroExistente.NombreLibro = libroActualizado.NombreLibro;
+            libroExistente.Autor = libroActualizado.Autor;
+            libroExistente.NumPaginas = libroActualizado.NumPaginas;
+            libroExistente.FechaPublicacion = libroActualizado.FechaPublicacion;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(libroExistente);
+
         }
 
     }

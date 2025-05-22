@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\BlazorBiblioteca.Shared\BlazorBiblioteca.Shared.csproj" />
     <ProjectReference Include="..\BlazorBiblioteca.Client\BlazorBiblioteca.Client.csproj" />
+    <PackageReference Include="Blazor.Bootstrap" Version="3.3.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.15" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.7" />

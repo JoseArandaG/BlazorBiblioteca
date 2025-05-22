@@ -13,6 +13,9 @@ builder.Services.AddRazorComponents()
 builder.Services.AddControllers();
 builder.Services.AddHttpClient();
 
+//add servicio Bootstrap
+builder.Services.AddBlazorBootstrap();
+
 //add servicios: DbContext
 builder.Services.AddDbContext<LibroDBContext>(options =>
 {

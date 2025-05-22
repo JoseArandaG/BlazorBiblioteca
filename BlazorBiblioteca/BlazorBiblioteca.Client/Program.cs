@@ -10,4 +10,8 @@ new HttpClient
     BaseAddress = new Uri(builder.Configuration["FrontendUrl"] ?? "https://localhost:7251")
 });
 
+
+//add servicio Bootstrap
+builder.Services.AddBlazorBootstrap();
+
 await builder.Build().RunAsync();
